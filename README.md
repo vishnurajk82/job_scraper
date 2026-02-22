@@ -30,5 +30,8 @@ A Python-based job scraping application that fetches job listings and analyzes r
 ## 🔐 Security Note
 API keys are not included in this repository.
 
+## Demo
+![App Screenshot](screenshot.png)
+
 ## 👨‍💻 Author
 Vishnu
