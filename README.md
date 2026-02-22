@@ -31,7 +31,7 @@ A Python-based job scraping application that fetches job listings and analyzes r
 API keys are not included in this repository.
 
 ## Demo
-![App Screenshot](screenshot.png)
+![App Screenshot](screenshot.png.png)
 
 ## 👨‍💻 Author
 Vishnu
