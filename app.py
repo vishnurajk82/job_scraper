@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = "9fd503c4b7msh99a37b4488d5882p153f8fjsn61d28ab0339c"
+API_KEY = "YOUR_API_KEY"
 
 url = "https://jsearch.p.rapidapi.com/search"
 
