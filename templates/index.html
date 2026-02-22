@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Job Finder</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input {
+            padding: 12px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #ff7a18;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff5733;
+        }
+
+        .container {
+            width: 70%;
+            margin: auto;
+        }
+
+        .job {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .job:hover {
+            transform: scale(1.02);
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .company {
+            color: #555;
+        }
+
+        .location {
+            color: green;
+        }
+
+        .score {
+            font-weight: bold;
+        }
+
+        .high { color: green; }
+        .medium { color: orange; }
+        .low { color: red; }
+
+        .missing {
+            color: red;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🔥 AI Job Finder (Chennai)</h1>
+
+<form method="POST">
+    <input type="text" name="skills" placeholder="Enter skills (python, sql)">
+    <button type="submit">Find Jobs</button>
+</form>
+
+<div class="container">
+{% for job in jobs %}
+    <div class="job">
+
+        <div class="title">{{ job.title }}</div>
+        <div class="company">{{ job.company }}</div>
+        <div class="location">📍 {{ job.location }}</div>
+
+        <a href="{{ job.link }}" target="_blank" class="btn">Apply</a>
+
+        <p class="score">
+            🔥 Match Score:
+            <span class="
+                {% if job.score >= 70 %}high
+                {% elif job.score >= 40 %}medium
+                {% else %}low
+                {% endif %}
+            ">
+                {{ job.score }}%
+            </span>
+        </p>
+
+        {% if job.missing %}
+            <p class="missing">❌ Missing Skills: {{ job.missing | join(', ') }}</p>
+        {% endif %}
+
+    </div>
+{% endfor %}
+</div>
+
+</body>
+</html>
